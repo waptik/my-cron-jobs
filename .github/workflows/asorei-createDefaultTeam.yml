@@ -8,11 +8,13 @@ on:
     - cron: "0,30 * * * *"
 jobs:
   cron:
+    runs-on: ubuntu-latest
+    environment: asorei
     env:
       BASE_URL: ${{ secrets.API_URL }}
       CRON_API_KEY: ${{ secrets.API_TOKEN }}
-    runs-on: ubuntu-latest
     steps:
+
       - name: cURL request
         if: ${{ env.API_URL && env.CRON_API_KEY }}
         run: |
