@@ -18,7 +18,7 @@ jobs:
       - name: cURL request
         if: ${{ env.API_URL && env.CRON_API_KEY }}
         run: |
-          curl ${{ secrets.API_URL }}/cron/createDefaultTeam \
+          curl ${{ secrets.API_URL }}/cron/setupDefaultTeam \
             -X POST \
             -H 'content-type: application/json' \
             -H 'authorization: ${{ secrets.CRON_API_KEY }}' \
