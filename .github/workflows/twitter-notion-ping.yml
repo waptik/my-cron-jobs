@@ -10,6 +10,9 @@ jobs:
   cron:
     runs-on: ubuntu-latest
     environment: snotion
+    secrets:
+      PING_URL: ${{ secrets.PING_URL }}
+      
     steps:
       - name: cURL request
         if: ${{ secrets.PING_URL }}
