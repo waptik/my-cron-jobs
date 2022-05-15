@@ -17,6 +17,6 @@ jobs:
       - name: cURL request
         if: ${{ env.PING_URL }}
         run: |
-          curl ${{ secrets.API_URL }} \
+          curl ${{ env.PING_URL }} \
             -X GET \
             --fail

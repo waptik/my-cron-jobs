@@ -16,10 +16,10 @@ jobs:
     steps:
 
       - name: cURL request
-        if: ${{ env.API_URL && env.CRON_API_KEY }}
+        if: ${{ env.BASE_URL && env.CRON_API_KEY }}
         run: |
-          curl ${{ secrets.API_URL }}/cron/setupDefaultTeam \
+          curl ${{ env.BASE_URL }}/cron/setupDefaultTeam \
             -X POST \
             -H 'content-type: application/json' \
-            -H 'authorization: ${{ secrets.CRON_API_KEY }}' \
+            -H 'authorization: ${{ env.CRON_API_KEY }}' \
             --fail
