@@ -9,7 +9,7 @@ on:
 jobs:
   cron:
     runs-on: ubuntu-latest
-    environment: asorei
+    environment: snotion
     env:
       PING_URL: ${{ secrets.PING_URL }}
     steps:
