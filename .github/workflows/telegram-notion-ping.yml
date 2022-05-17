@@ -25,5 +25,4 @@ jobs:
         if: ${{ env.TGBOT_URL }}
         run: |
           curl ${{ env.TGBOT_URL }} \
-            -X POST \
             --fail
