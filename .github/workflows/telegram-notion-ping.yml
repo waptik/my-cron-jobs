@@ -26,5 +26,4 @@ jobs:
         run: |
           curl ${{ env.TGBOT_URL }} \
             -X POST \
-            -H 'content-type: application/json' \
             --fail
