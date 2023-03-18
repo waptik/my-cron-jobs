@@ -1,12 +1,10 @@
 name: Cron - NotionBird/telegram.ping
 
 on:
-  # "Scheduled workflows run on the latest commit on the default or base branch."
-  # — https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#schedule
+  
   schedule:
     # Runs “At every minute.” (see https://crontab.guru)
     - cron: "* * * * *"
-  workflow_dispatch:
 
 jobs:
   cron:
@@ -14,6 +12,14 @@ jobs:
     environment: snotion
     env:
       TGBOT_URL: ${{ secrets.TGBOT_URL }}
+
+    steps:
+
+      - name: Make HTTP request
+        if: ${{ env.TGBOT_URL }}
+        run: |
+          curl ${{ env.TGBOT_URL }} \
+            --fail
 
     steps:
       - run: echo "Run id = ${{ github.run_id }}"
